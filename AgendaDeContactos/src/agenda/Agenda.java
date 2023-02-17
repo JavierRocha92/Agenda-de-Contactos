@@ -10,30 +10,55 @@ import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
 public class Agenda {
+	/**
+	 * PARAMETRO UN ARRAYLIST DE CONTACTOS
+	 */
 	private ArrayList<Contacto>contactos;
+	/**
+	 * CONSTRUCTOR CON EL PARAMETRO DEL ARRAYLIST
+	 * @param contactos
+	 */
 
 	public Agenda(ArrayList<Contacto> contactos) {
 		super();
 		this.contactos = contactos;
 	}
+	/**
+	 * CONSTRUCTOR VACIO POR DEFECTO
+	 */
 
 	public Agenda() {
 		super();
 		this.contactos = new ArrayList<Contacto>();
 	}
+	/**
+	 * GETTER PARA EL ARRAYLIST DE CONATCTOS
+	 * @return contactos, ES EL ARRAYLIST DE Contacto
+	 */
 
 	public ArrayList<Contacto> getContactos() {
 		return contactos;
 	}
+	/**
+	 * SETTER PARA EL ARRAYLIST DE Contacto
+	 * @param contactos
+	 */
 
 	public void setContactos(ArrayList<Contacto> contactos) {
 		this.contactos = contactos;
 	}
+	/**
+	 * METODO TO STRING
+	 */
 
 	@Override
 	public String toString() {
 		return "Agenda [contactos=" + contactos + "]";
 	}
+	/**
+	 * RECORRE EL ARRAYLIST CON UN BUCLE FOREACH E IMPRIME POR PANTALLA EL NOMBRE Y EL NUMERO DE TEELFONO DE CADA CONTACTO
+	 * (NOS PERMITE VISUALIZAR LOS CONATCATOS QUE ESTEN CARGADOS EN EL ARRAYLIST)
+	 */
 	
 	public void imprimirAgenda() {
 		for (Contacto c : this.contactos) {
@@ -42,11 +67,20 @@ public class Agenda {
 		}
 		
 	}
+	/**
+	 * METODO PARA CARGAR EN EL ATTAYLIST EL Contacto  QUE LE PASAMOS COMO PARAMETRO
+	 * @param c = CONTACTO QUE PASAMOS COMO PARAMETRO
+	 */
 	
 	public void añadirContacto(Contacto c) {
 		this.contactos.add(c);
 		
 	}
+	/**
+	 * METODO PARA ELIMINAR UN CONTACTO USANDO COMO PARAMETRO EL NOMBRE DE DICHO Contacto,EL CUAL RECORRERA EL ARRAYLIST
+	 * CON UN BUCLE FOREACH Y ELIMINARA EL CONTACTO QUE CORRESPONDA CON ESE NOMBRE
+	 * @param nombre
+	 */
 	
 	public void eliminarContacto(String nombre) {
 		for (int i = 0; i < this.contactos.size(); i++) {
@@ -57,6 +91,11 @@ public class Agenda {
 			
 		
 	}
+	
+	/*
+	 * METODO PARA GENERA UN FICHERO DE OBEJTOS Y GUARADR LOS CONTACTOS QUE CARGA EN ESE MOMENTO EL ARRAYLIST, SE LE PASA COMO PARAMETRO EL
+	 * NOMBRE DEL FICHERO A CREAR
+	 */
 	
 	public void guardarAgenda(String filename) {
 		try {
@@ -74,6 +113,11 @@ public class Agenda {
 		}
 		
 	}
+	/**
+	 * METODO PARA LEER LOS Contacto  DE UN FICHERO DE OBJETOS Y CARGARLOS EN EL ARRAYLIST, PARA PODER TRABAJAR CON ELLOS, SE LE 
+	 * PASA COMO PARAMETRO EL NOMBRE DEL FICHERO
+	 * @param filename
+	 */
 	
 	public void cargarAgenda(String filename) {
 		try {
@@ -98,6 +142,9 @@ public class Agenda {
 		
 	}
 	
+	/**
+	 * MAIN DE LA CLASE AGENDA PARA PRUEBA UNITARIA(REMOVER COMENTADO PARA HACERLO FUNCIONAR)
+	 */
 //	public static void main(String[] args) {
 //		
 //		Agenda a=new Agenda();
